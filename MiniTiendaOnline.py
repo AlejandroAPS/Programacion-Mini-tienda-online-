@@ -9,8 +9,7 @@ def menu():
     print("3.Buscar artículos por id")
     print("4.Actualizar artículo")
     print("5.Eliminar artículo")
-    print("6.Alternar Activo/Inactivo")
-    print("7.Salir")
+    print("6.Salir")
 #Definicion para crear un articulo nuevo
 def crear1(nuevoarticulo):
     nuevonombre = str(input("Dime el nombre del producto a añadir:"))
@@ -19,7 +18,8 @@ def crear1(nuevoarticulo):
     nuevoarticulo.update({"precio": nuevoprecio })
     nuevostock = int(input("Que tanto stock hay?:"))
     nuevoarticulo.update({"stock": nuevostock })
-    nuevoactividad = bool(input("Se puede vender ya mismo?:"))
+    pythonestamalhecho = input("Se puede vender ya mismo? (si/no):").strip().lower()    #Esta parafernalia es porque al hacer bool(input()) si esta lleno da true y si esta vacio da false por lo que siempre daba false porque python es mierda
+    nuevoactividad = pythonestamalhecho in ["si", "sì", "s", "true", "1"]   #(Me ayudo chatGPT) es para comparar el input de usuaior a las opciones de esta lista y  asi de true o flase bien porque antes solo devolvia true
     nuevoarticulo.update({"activo": nuevoactividad })
     articulos.append(nuevoarticulo)
     return articulos
@@ -35,11 +35,55 @@ def buscar3(busqueda):
     else:
         print("Artículo no encontrado")
 #Definicion para actualizar los articulos(diccionarios) en la lista de articulos
-def actualizar4()
-    #toca tocar cosas por aqui xddddd
+def actualizar4():
+    articulo_encontrado = False    #Esto es importante luego
+    nombre_articulo = str(input("¿Cual es el nombre del artículo a actualizar?: "))
+    for objeto in articulos:
+        if objeto["nombre"] == nombre_articulo:
+            articulo_encontrado = True
+            objeto_actualizado = objeto
+            print("Artículo encontrado: ", objeto)
+            print("Campos disponibles para actualizar:")
+            print(list(objeto.keys()))
+            clave = str(input("Que campo deseas actualizar?")).strip().lower()
+            match clave:
+                case "nombre":
+                    Nnombre = str(input("Dime el nuevo nombre que va a tener"))
+                    objeto["nombre"] = Nnombre 
+                case "precio":
+                    Nprecio = float(input("Dime el nuevo precio que va a tener:"))
+                    objeto["precio"] = Nprecio
+                case "stock":
+                    Nstock = int(input("Dime la nueva cantidad de stcok del producto:"))
+                    objeto["stock"] = Nstock
+                case "activo":
+                    pythonesmierda = (input("Dime si esta listo para venta o no(si/no):")).strip().lower()
+                    Nactivo = pythonesmierda in ["si", "sì", "s", "true", "1"]  #Es para que le puedas meter el bicho HAY SI YO QUIERO QUE ME METAN EL BICHO(lo explico arriba)
+                    objeto["activo"] = Nactivo
+                case _:
+                    print("Opción de campo erronea")
+    if articulo_encontrado == False:    #Evita posibles comportamientos extraños/bugs etc (Si lo tocas te toco)
+        print("Artículo no encontrado")
+    return objeto_actualizado
+    
+def borralacuenta5():       #Literal  copiado de la funcion anterior
+    articulo_encontrado = False    
+    nombre_articulo = str(input("¿Cual es el nombre del artículo a borrar de la lista?: "))
+    for objeto in articulos:
+        if objeto["nombre"] == nombre_articulo:
+            articulo_encontrado = True
+            print("Artículo encontrado: ", objeto)
+            pythonesmierda = (input("Estas seguro de que quieres borrar el artículo(Acción irreversible)(si/no):")).strip().lower()
+            seguro = pythonesmierda in ["si", "sì", "s", "true", "1"]  #Es para que le puedas meter el bicho HAY SI DIQUE YO QUIERO QUE ME METAN EL BICHO(lo explico arriba)
+            if seguro == True:
+               articulos.remove(objeto) 
+               print("Artículo eliminado correctamente")
 
+    if articulo_encontrado == False:
+        print("Artículo no encontrado")
+    return articulos
+            
 ##Desarrollo Programa
-
 menu()
 while opcion != 7:
     opcion = int(input("Escoge el número de la opción que desees"))
@@ -52,12 +96,10 @@ while opcion != 7:
             busqueda = int(input("Dime el ID numerico:"))
             buscar3(busqueda)
         case 4:
-            print("opcion4")
+            actualizar4()
         case 5:
-            print("opcion5")
+            borralacuenta5()
         case 6:
-            print("opcion6")
-        case 7:
             print("Terminando programa....")
         case _:
             print("opcion otro")
