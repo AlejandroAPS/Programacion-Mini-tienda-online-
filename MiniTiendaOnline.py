@@ -3,13 +3,22 @@ opcion = 0
 articulos = []
 ##Funciones
 #Definicion del menu
-def menu():             
+def menu_articulos():             
     print("1.Crear artículo")
     print("2.Listar artículos")
     print("3.Buscar artículos por id")
     print("4.Actualizar artículo")
     print("5.Eliminar artículo")
-    print("6.Salir")
+    print("6.Continuar a gesion de usuarios")
+#Definicion del menu de usuarios
+def menu_usuarios():
+    print("1.Crear usuarios")
+    print("2.Listar usuarios")
+    print("3.Buscar usuarios por id")
+    print("4.Actualizar ususario")
+    print("5.Eliminar usuairo")
+    print("6.Alternar activo/inactivo")
+    print("7.Volver")
 #Definicion para crear un articulo nuevo
 def crear1(nuevoarticulo):
     nuevonombre = str(input("Dime el nombre del producto a añadir:"))
@@ -84,8 +93,8 @@ def borralacuenta5():       #Literal  copiado de la funcion anterior
     return articulos
             
 ##Desarrollo Programa
-menu()
-while opcion != 7:
+menu_articulos()
+while opcion != 6:
     opcion = int(input("Escoge el número de la opción que desees"))
     match opcion:
         case 1:
@@ -103,3 +112,10 @@ while opcion != 7:
             print("Terminando programa....")
         case _:
             print("opcion otro")
+
+
+menu_usuarios()
+while opcion != 7:
+    opcion = int(input("Escoge el númeor de la opción que desees"))
+    match opcion:
+        case 1:
