@@ -1,9 +1,7 @@
 ##Variables / imports
 import Funciones_Articulos
-import Funciones_Usuarios
 opcion = 0
 articulos = []
-usuarios = []
 ##Desarrollo Programa
 Funciones_Articulos.menu_articulos()
 while opcion != 6:
@@ -24,24 +22,3 @@ while opcion != 6:
             print("Continuar a menu gestion de usuarios")
         case _:
             print("Porfavor escoga una opción de entre la lista")
-
-Funciones_Usuarios.menu_usuarios()
-while opcion != 7:
-    opcion = int(input("Escoge el número de la opción que desees"))
-    match opcion:
-        case 1:
-            Funciones_Usuarios.crear1(usuarios)
-        case 2:
-            Funciones_Usuarios.mostrar2(usuarios)
-        case 3:
-            Funciones_Usuarios.buscar3(usuarios)
-        case 4:
-            Funciones_Usuarios.actualizar4(usuarios)
-        case 5:
-            Funciones_Usuarios.borralacuenta5(usuarios)
-        case 6:
-            print("opcion VOLVER")
-        case 7:
-            print("opcion SIGUIENTE MENU")
-        case _:
-            print("opcion otro")
