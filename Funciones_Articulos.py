@@ -5,7 +5,9 @@ def menu_articulos():
     print("3.Buscar artículos por id")
     print("4.Actualizar artículo")
     print("5.Eliminar artículo")
-    print("6.Continuar a gesion de usuarios")
+    print("6.Menúgestión de usuarios")
+    print("7.Carrito de la compra")
+    print("8.Salir del programa")
 #Definicion para crear un articulo nuevo
 def crear1(articulos):
     nuevoarticulo = {}
@@ -24,7 +26,7 @@ def crear1(articulos):
 def mostrar2(articulos):
     print(articulos)
 #Definicion para buscar por ID de articulo
-def buscar3(busqueda, articulos):
+def buscar3(articulos, busqueda):
     if busqueda < len(articulos) + 1:
         for articulo in articulos:
             if articulo ["ID"] == busqueda:
@@ -41,8 +43,8 @@ def actualizar4(articulos):
             objeto_actualizado = objeto
             print("Artículo encontrado: ", objeto)
             print("Campos disponibles para actualizar:")
-            print(list(objeto.keys()))
-            clave = str(input("Que campo deseas actualizar?")).strip().lower()
+            print(list(objeto.keys()))  
+            clave = str(input("Que campo deseas actualizar?(ID es el único que no se puede actualizar)")).strip().lower()
             match clave:
                 case "nombre":
                     Nnombre = str(input("Dime el nuevo nombre que va a tener"))

@@ -5,7 +5,9 @@ def menu_usuarios():
     print("3.Buscar usuarios por ID")
     print("4.Actualizar usuario")
     print("5.Eliminar ususario")
-    print("6.Volver")
+    print("6.Menú gestión de artículos")
+    print("7.Carrito de la compra")
+    print("8.Salir del programa")
 #Definicion para crear un articulo nuevo {"id": 1, "nombre": "Ana", "email": "ana@example.com", "activo": True}
 def crear1(usuarios):
     nuevousuario = {}
@@ -28,7 +30,7 @@ def buscar3(busqueda, usuarios):
             if usuario ["ID"] == busqueda:
                 print(usuario)
     else:
-        print("Artículo no encontrado")
+        print("Usuario no encontrado")
 #Definicion para actualizar los articulos(diccionarios) en la lista de articulos
 def actualizar4(usuarios):
     usuario_encontrado = False    #Esto es importante luego
