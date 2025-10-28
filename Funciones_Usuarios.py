@@ -58,19 +58,19 @@ def actualizar4(usuarios):
         print("Artículo no encontrado")
     return usuario_actualizado, usuarios
     
-def borralacuenta5(articulos):       #Literal  copiado de la funcion anterior
-    articulo_encontrado = False    
-    nombre_articulo = str(input("¿Cual es el nombre del artículo a borrar de la lista?: "))
-    for objeto in articulos:
-        if objeto["nombre"] == nombre_articulo:
+def borralacuenta5(usuarios):       #Literal  copiado de la funcion anterior
+    usuario_encontrado = False    
+    nombre_usuario = str(input("¿Cual es el nombre del artículo a borrar de la lista?: "))
+    for objeto in usuarios:
+        if objeto["nombre"] == nombre_usuario:
             articulo_encontrado = True
             print("Artículo encontrado: ", objeto)
             pythonesmierda = (input("Estas seguro de que quieres borrar el artículo(Acción irreversible)(si/no):")).strip().lower()
             seguro = pythonesmierda in ["si", "sì", "s", "true", "1"]  #Es para que le puedas meter el bicho HAY SI DIQUE YO QUIERO QUE ME METAN EL BICHO(lo explico arriba)
             if seguro == True:
-               articulos.remove(objeto) 
+               usuarios.remove(objeto) 
                print("Artículo eliminado correctamente")
 
-    if articulo_encontrado == False:
+    if usuario_encontrado == False:
         print("Artículo no encontrado")
-    return articulos
+    return usuarios
