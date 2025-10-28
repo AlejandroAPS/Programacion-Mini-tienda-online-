@@ -1,5 +1,6 @@
 import Funciones_Articulos
 import Funciones_Usuarios
+import Funciones_Carrito
 
 # Listas para almacenar datos
 articulos = []
@@ -24,11 +25,11 @@ def menu_articulos():
             case 5:
                 Funciones_Articulos.borralacuenta5(articulos)
             case 6:
-                print("Cambiando a gestión de usuarios...")
+                print("Cargando gestión de usuarios...")
                 menu_usuarios()  
             case 7:
-                print("Saliendo del programa...")
-                exit()
+                print("Cargando carrito...")
+                menu_carrito()
             case 8:
                 print("Saliendo del programa...")
                 exit()    
@@ -54,14 +55,50 @@ def menu_usuarios():
             case 5:
                 Funciones_Usuarios.borralacuenta5(usuarios)
             case 6:
+                print("Cargando gestión de artículos...")
                 menu_articulos()
             case 7:
-                print("Opcion carrito de compra")
+                print("Cargando carrito...")
+                menu_carrito()
             case 8:
                 print("saliendo del programa")
                 exit()
             case _:
                 print("Por favor, escoge una opción válida.")
+
+def menu_carrito():
+    opcion = 0
+    while opcion != 10:
+        Funciones_Carrito.menu_carrito()
+        opcion = int(input("Escoge el número de la opción que desees: "))
+
+        match opcion:
+            case 1:
+                print("Opcion 1")
+            case 2:
+                print("Opcion 2")
+            case 3:
+                print("Opcion 3")
+            case 4:
+                print("Opción 4")
+            case 5:
+                print("Opcion 5")
+            case 6:
+                print("opcion 6")
+            case 7:
+                print("Opcion 7")
+            case 8:
+                print("Cargando gestión de artículos...")
+                menu_articulos()
+            case 9:
+                print("Cargando gestión de usuarios...")
+                menu_usuarios()
+            case 10:
+                print("Saliendo del programa...")
+                exit()
+            case _:
+                print("Por favor, escoge una opción válida.")
+
 
 # 🔹 Aquí arranca todo el programa
 menu_articulos()

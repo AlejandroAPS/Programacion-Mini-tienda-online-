@@ -5,7 +5,7 @@ def menu_articulos():
     print("3.Buscar artículos por id")
     print("4.Actualizar artículo")
     print("5.Eliminar artículo")
-    print("6.Menúgestión de usuarios")
+    print("6.Menú gestión de usuarios")
     print("7.Carrito de la compra")
     print("8.Salir del programa")
 #Definicion para crear un articulo nuevo
