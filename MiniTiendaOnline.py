@@ -1,18 +1,23 @@
+
+#Importación lanzapapeadas
 import Funciones_Articulos
 import Funciones_Usuarios
 import Funciones_Carrito
 
-# Listas para almacenar datos
+    # Listas para almacenar datos
 articulos = []
 usuarios = []
+carrito = []
+menu_actual = "articulos"
+usuario_seleccionado = None
 
 def menu_articulos():
     opcion = 0
     while opcion != 8:
         Funciones_Articulos.menu_articulos()
         opcion = int(input("Escoge el número de la opción que desees: "))
-        
-        match opcion:
+            
+        match opcion:   
             case 1:
                 Funciones_Articulos.crear1(articulos)
             case 2:
@@ -25,14 +30,11 @@ def menu_articulos():
             case 5:
                 Funciones_Articulos.borralacuenta5(articulos)
             case 6:
-                print("Cargando gestión de usuarios...")
-                menu_usuarios()  
+                return ("usuarios")
             case 7:
-                print("Cargando carrito...")
-                menu_carrito()
+                return ("carrito")
             case 8:
-                print("Saliendo del programa...")
-                exit()    
+                return("salir")
             case _:
                 print("Por favor, escoge una opción válida.")
 
@@ -55,14 +57,11 @@ def menu_usuarios():
             case 5:
                 Funciones_Usuarios.borralacuenta5(usuarios)
             case 6:
-                print("Cargando gestión de artículos...")
-                menu_articulos()
+                return "articulos"
             case 7:
-                print("Cargando carrito...")
-                menu_carrito()
+                return "carrito"
             case 8:
-                print("saliendo del programa")
-                exit()
+                return "salir"
             case _:
                 print("Por favor, escoge una opción válida.")
 
@@ -71,12 +70,11 @@ def menu_carrito():
     while opcion != 10:
         Funciones_Carrito.menu_carrito()
         opcion = int(input("Escoge el número de la opción que desees: "))
-
         match opcion:
             case 1:
-                print("Opcion 1")
+                Funciones_Carrito.selecc_usuario1(usuarios, usuario_seleccionado)
             case 2:
-                print("Opcion 2")
+                Funciones_Carrito.anadir_articulo2(articulos, carrito)
             case 3:
                 print("Opcion 3")
             case 4:
@@ -88,17 +86,25 @@ def menu_carrito():
             case 7:
                 print("Opcion 7")
             case 8:
-                print("Cargando gestión de artículos...")
-                menu_articulos()
+                return "articulos"
             case 9:
-                print("Cargando gestión de usuarios...")
-                menu_usuarios()
+                return "usuarios"
             case 10:
-                print("Saliendo del programa...")
-                exit()
+                return "salir"
             case _:
                 print("Por favor, escoge una opción válida.")
 
-
-# 🔹 Aquí arranca todo el programa
-menu_articulos()
+    #A partir de aqui empieza la logica del programa
+while True:
+    if menu_actual == "articulos":
+        print("Cargando gestión de artículos...")
+        menu_actual = menu_articulos()
+    elif menu_actual == "usuarios":
+        print("Cargando gestión de usuairos")
+        menu_actual = menu_usuarios()
+    elif menu_actual == "carrito":
+        print("Cargando carrito")
+        menu_actual = menu_carrito()
+    elif menu_actual == "salir":
+        print("Saliendo del programa...")
+        exit()

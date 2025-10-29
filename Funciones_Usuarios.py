@@ -1,4 +1,4 @@
-#Definicion del menu
+#Definicion del menu gestion de usuarios
 def menu_usuarios():          
     print("1.Crear usuario")
     print("2.Listar usuarios")
@@ -15,8 +15,8 @@ def crear1(usuarios):
     nuevousuario.update({"ID": len(usuarios) + 1, "nombre": nuevonombre})
     nuevoemail = str(input("Cual es su E-mail?:"))
     nuevousuario.update({"email": nuevoemail })
-    pythonestamalhecho = input("Se encuentra en actividad?(si/no):").strip().lower()    #Esta parafernalia es porque al hacer bool(input()) si esta lleno da true y si esta vacio da false por lo que siempre daba false porque python es mierda
-    nuevoactividad = pythonestamalhecho in ["si", "sì", "s", "true", "1"]   #(Me ayudo chatGPT) es para comparar el input de usuaior a las opciones de esta lista y  asi de true o flase bien porque antes solo devolvia true
+    pythonestamalhecho = input("Se encuentra en actividad?(si/no):").strip().lower()    #Esta parafernalia es porque al hacer bool(input()) si esta lleno da true y si esta vacio da false por lo que siempre daba true porque python es mierda
+    nuevoactividad = pythonestamalhecho in ["si", "sì", "s", "true", "1"]   #(Me ayudo chatGPT) es para comparar el input del tonto usuario a las opciones de esta lista y asi de true o flase bien porque antes solo devolvia true
     nuevousuario.update({"activo": nuevoactividad })
     usuarios.append(nuevousuario)
     return usuarios
@@ -31,48 +31,48 @@ def buscar3(busqueda, usuarios):
                 print(usuario)
     else:
         print("Usuario no encontrado")
-#Definicion para actualizar los articulos(diccionarios) en la lista de articulos
+#Definicion para actualizar los usuarios(diccionarios) en la lista de usuarios
 def actualizar4(usuarios):
     usuario_encontrado = False    #Esto es importante luego
-    nombre_usuario = str(input("¿Cual es el nombre del artículo a actualizar?: "))
+    nombre_usuario = str(input("¿Cual es el nombre del usuario a actualizar?: "))
     for usuario in usuarios:
         if usuario["nombre"] == nombre_usuario:
             usuario_encontrado = True
             usuario_actualizado = usuario
-            print("Artículo encontrado: ", usuario)
+            print("Usuario encontrado: ", usuario)
             print("Campos disponibles para actualizar:")
             print(list(usuario.keys()))
             clave = str(input("Que campo deseas actualizar?")).strip().lower()
             match clave:
                 case "nombre":
-                    Nnombre = str(input("Dime que nombre va a tener:"))
+                    Nnombre = str(input("Dime que nuevo nombre va a tener:"))
                     usuario["nombre"] = Nnombre 
                 case "precio":
                     Nemail = str(input("Dime cual es el nuevo email a usar:"))
                     usuario["email"] = Nemail
                 case "activo":
-                    pythonesmierda = (input("Dime si esta listo para venta o no(si/no):")).strip().lower()
+                    pythonesmierda = (input("¿Se encuentra en actividad?(si/no):")).strip().lower()
                     Nactivo = pythonesmierda in ["si", "sì", "s", "true", "1"]  #Es para que le puedas meter el bicho HAY SI YO QUIERO QUE ME METAN EL BICHO(lo explico arriba)
                     usuario["activo"] = Nactivo
                 case _:
                     print("Opción de campo erronea")
     if usuario_encontrado == False:    #Evita posibles comportamientos extraños/bugs etc (Si lo tocas te toco)
-        print("Artículo no encontrado")
+        print("Usuario no encontrado")
     return usuario_actualizado, usuarios
     
-def borralacuenta5(usuarios):       #Literal  copiado de la funcion anterior
+def borralacuenta5(usuarios):       #Literal copiado de la funcion anterior
     usuario_encontrado = False    
-    nombre_usuario = str(input("¿Cual es el nombre del artículo a borrar de la lista?: "))
+    nombre_usuario = str(input("¿Cual es el nombre del usuario a borrar?: "))
     for objeto in usuarios:
         if objeto["nombre"] == nombre_usuario:
-            articulo_encontrado = True
-            print("Artículo encontrado: ", objeto)
-            pythonesmierda = (input("Estas seguro de que quieres borrar el artículo(Acción irreversible)(si/no):")).strip().lower()
+            usuario_encontrado = True
+            print("Usuario encontrado: ", objeto)
+            pythonesmierda = (input("Estas seguro de que quieres borrar el usuario(Acción irreversible)(si/no):")).strip().lower()
             seguro = pythonesmierda in ["si", "sì", "s", "true", "1"]  #Es para que le puedas meter el bicho HAY SI DIQUE YO QUIERO QUE ME METAN EL BICHO(lo explico arriba)
             if seguro == True:
                usuarios.remove(objeto) 
-               print("Artículo eliminado correctamente")
+               print("Usuario eliminado correctamente")
 
     if usuario_encontrado == False:
-        print("Artículo no encontrado")
+        print("Usuario no encontrado")
     return usuarios
