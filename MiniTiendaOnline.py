@@ -8,6 +8,7 @@ import Funciones_Carrito
 articulos = []
 usuarios = []
 carrito = []
+historialventas = []
 menu_actual = "articulos"
 usuario_seleccionado = None
 
@@ -76,15 +77,15 @@ def menu_carrito():
             case 2:
                 Funciones_Carrito.anadir_articulo2(articulos, carrito)
             case 3:
-                print("Opcion 3")
+                Funciones_Carrito.borrararticulo3(carrito)
             case 4:
-                print("Opción 4")
+                Funciones_Carrito.vercarrito4(carrito)
             case 5:
-                print("Opcion 5")
+                Funciones_Carrito.terminar_compra5(carrito, historialventas, usuario_seleccionado)
             case 6:
                 print("opcion 6")
             case 7:
-                print("Opcion 7")
+                Funciones_Carrito.vaciarcarrito7(carrito)
             case 8:
                 return "articulos"
             case 9:
