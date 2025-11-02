@@ -95,6 +95,7 @@ def menu_carrito():
             case _:
                 print("Por favor, escoge una opción válida.")
 
+<<<<<<< Updated upstream
     #A partir de aqui empieza la logica del programa
 while True:
     if menu_actual == "articulos":
@@ -109,3 +110,8 @@ while True:
     elif menu_actual == "salir":
         print("Saliendo del programa...")
         exit()
+=======
+
+# 🔹 Aquí arranca todo el programa
+menu_articulos()
+>>>>>>> Stashed changes
