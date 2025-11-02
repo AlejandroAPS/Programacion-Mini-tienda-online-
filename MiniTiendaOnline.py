@@ -113,5 +113,9 @@ while True:
 =======
 
 # 🔹 Aquí arranca todo el programa
+<<<<<<< Updated upstream
+menu_articulos()
+>>>>>>> Stashed changes
+=======
 menu_articulos()
 >>>>>>> Stashed changes
