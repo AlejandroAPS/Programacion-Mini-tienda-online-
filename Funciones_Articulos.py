@@ -64,7 +64,8 @@ def actualizar4(articulos):
     if articulo_encontrado == False:    #Evita posibles comportamientos extraños/bugs etc (Si lo tocas te toco)
         print("Artículo no encontrado")
     return objeto_actualizado, articulos
-    
+
+
 def borralacuenta5(articulos):       #Literal  copiado de la funcion anterior
     articulo_encontrado = False    
     nombre_articulo = str(input("¿Cual es el nombre del artículo a borrar de la lista?: "))

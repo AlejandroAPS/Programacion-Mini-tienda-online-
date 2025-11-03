@@ -31,7 +31,7 @@ def selecc_usuario1(usuarios, usuario_seleccionado):
 #Definicion para añadir un articulo al carrito
 def anadir_articulo2(articulos, carrito):
     articulo_encontrado = False         #Esto es importante luego
-    print(carrito)
+    print(articulos)
     nombre_articulo = str(input("¿Cual articulo quieres añadir al carrito?: "))
     for objeto in articulos:
         if objeto["nombre"] == nombre_articulo:
@@ -78,20 +78,32 @@ def vercarrito4(carrito):
     print("El total a pagar es:", suma)
         
 #Definicion para teminar la compra
-def terminar_compra5(carrito,historialventas,usuario_seleccionado)
+def terminar_compra5(carrito,historialventas,usuario_seleccionado):
     if usuario_seleccionado == None:
-        return("Por favor seleccione un usuario")
-    else:
-        vercarrito4(carrito)
-        pythonesmierda = (input("Estas seguro de que quieres terminar la compra?(si/no):")).strip().lower()
-        seguro = pythonesmierda in ["si", "sì", "s", "true", "1"]  #Es para que le puedas meter el bicho HAY SI DIQUE YO QUIERO QUE ME METAN EL BICHO(lo explico arriba)
-        if seguro == True:
-            historialventas.update(usuario_seleccionado)
-            historialventas.update(carrito)
-            carrito.clear()
-            print("Compra realizada con éxito")
-            return carrito, historialventas
+        print("Por favor seleccione un usuario")
+    print(carrito)
+    pythonesmierda = (input("Estas seguro de que quieres terminar la compra?(si/no):")).strip().lower()
+    seguro = pythonesmierda in ["si", "sì", "s", "true", "1"]  #Es para que le puedas meter el bicho HAY SI DIQUE YO QUIERO QUE ME METAN EL BICHO(lo explico arriba)
+    if seguro == True:
+        pythonescaca = carrito
+        historialventas.append(usuario_seleccionado)    #PORQUE NO TE ACTUALIZAS AJJAJAJA
+        historialventas.append(pythonescaca)     #Lo que deberia de ocurrir aqui  es que se actualize la lista  y luego se vuelque todo pero te lo da todo vacio incluido usuario seleccionado
+        carrito.clear()
+        print("Compra realizada con éxito")
+        print(historialventas)
+        return carrito, historialventas
         
+#Función historial de ventas
+def historial_ventas6(historialventas):
+    contador = 1
+    for venta in historialventas:
+        if contador % 2 != 0:
+            print(contador, ". ", venta["nombre"])
+            contador = contador + 1
+        if contador % 2 == 0:
+            print("Ha comprado: ", venta)
+        
+
         
 #Función (bastante simple) para vaciar el carrito entero
 def vaciarcarrito7(carrito):

@@ -12,6 +12,7 @@ historialventas = []
 menu_actual = "articulos"
 usuario_seleccionado = None
 
+
 def menu_articulos():
     opcion = 0
     while opcion != 8:
@@ -83,7 +84,7 @@ def menu_carrito():
             case 5:
                 Funciones_Carrito.terminar_compra5(carrito, historialventas, usuario_seleccionado)
             case 6:
-                print("opcion 6")
+                Funciones_Carrito.historial_ventas6(carrito)
             case 7:
                 Funciones_Carrito.vaciarcarrito7(carrito)
             case 8:
